@@ -14,6 +14,8 @@ let fontSizeStep = 5;
 function createBoxes(amount) {
   amount = refs.input.value;
 
+  const arrayToInjection = [];
+
   for (let i = 1; i <= amount; i += 1){
     const newBox = document.createElement('div');
     newBox.style.width = `${startingSize + step}px`;
@@ -30,8 +32,9 @@ function createBoxes(amount) {
     step += 10;
     fontSizeStep += 4;
 
-    refs.boxes.appendChild(newBox)
+    arrayToInjection.push(newBox)
   }
+  refs.boxes.append(...arrayToInjection)
 }
 
 function clearBoxes() {
